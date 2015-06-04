@@ -9,7 +9,7 @@ private:
 	char filename[50];
 	FILE *f;
 	struct stat buff;
-	int num_characters = 0;
+	int numLines = 0;
 public:
 	File(char *_filename);
 	~File();
@@ -21,6 +21,9 @@ public:
 	void stats(void);
 
 	int getNumChars();
+
+	void setNumLines(void);
+	int getNumLines();
 
 	void info(void);
 

@@ -31,10 +31,23 @@ void File::open(void) {
 
 void File::stats(void) {
 	fstat(fileno(f), &buff);
+	setNumLines();
 }
 
 int File::getNumChars() {
-	return buff.st_size;
+	return buff.st_size; //TODO not this!
+}
+
+void File::setNumLines(void) {
+	int ch = 0;
+	unsigned int number_of_lines = 0;
+	while (EOF != (ch = getc(f)))
+		if ('\n' == ch)
+			++number_of_lines;
+	numLines = number_of_lines;
+}
+int File::getNumLines() {
+	return numLines;
 }
 
 void File::info(void) {
