@@ -12,6 +12,10 @@ public:
 	File(char *_filename);
 	~File();
 
+	void setFileName(char *_filename);
+
+	void open(void);
+
 	void info(void);
 
 	void read(void);
