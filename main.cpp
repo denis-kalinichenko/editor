@@ -4,6 +4,7 @@
 #include <string.h>
 #include <string>
 
+
 using namespace std;
 
 #include "File.h"
@@ -43,7 +44,7 @@ int main(int argc, char** argv) {
 	File TextFile(new_file_name);
 
 	TextFile.open();
-
+	TextFile.stats();
 
 	
 	showOptions();
@@ -67,11 +68,19 @@ int main(int argc, char** argv) {
 		cout << "Zliczanie znakow (1), slow (2) i wierszy (3): ";
 		int action_count;
 		cin >> action_count;
+		switch (action_count)
+		{
+		case 1:
+			cout << "Znakow: " << TextFile.getNumChars() << endl;
+		default:
+			break;
+		}
 
 		break;
 	default:
 		break;
 	}
+
 
 	system("pause");
 	return 0;

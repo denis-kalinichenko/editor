@@ -1,6 +1,9 @@
-#define _CRT_SECURE_NO_WARNINGS
+﻿#define _CRT_SECURE_NO_WARNINGS
 #include "File.h"
 
+#include <stdio.h>
+#include <sys\stat.h>
+#include <stdlib.h>
 
 File::File(char *_filename)
 {
@@ -25,10 +28,15 @@ void File::open(void) {
 	}
 }
 
-void File::info(void) {
-	cout << "info " << filename << endl;
+
+void File::stats(void) {
+	fstat(fileno(f), &buff);
 }
 
-void File::read(void) {
-	cout << "info " << filename << endl;
+int File::getNumChars() {
+	return buff.st_size;
+}
+
+void File::info(void) {
+	cout << "info " << buff.st_size << endl;
 }

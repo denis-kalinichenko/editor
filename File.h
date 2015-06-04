@@ -8,6 +8,8 @@ class File
 private:
 	char filename[50];
 	FILE *f;
+	struct stat buff;
+	int num_characters = 0;
 public:
 	File(char *_filename);
 	~File();
@@ -16,7 +18,10 @@ public:
 
 	void open(void);
 
+	void stats(void);
+
+	int getNumChars();
+
 	void info(void);
 
-	void read(void);
 };
