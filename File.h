@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string.h>
 #include <fstream> 
-using namespace std;
+using namespace std; //TODO delete this
 
 class File
 {

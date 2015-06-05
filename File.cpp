@@ -76,8 +76,7 @@ void File::setNumWords(void) {
 		inData >> word;
 		count++;
 	}
-	cout << "Number of words in file are " << count << endl;
-
+	numWords = count; //TODO not working
 }
 
 int File::getNumWords() {
