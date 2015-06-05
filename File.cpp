@@ -42,6 +42,7 @@ void File::stats(void) {
 	fstat(fileno(f), &buff);
 	setNumChars();
 	setNumLines();
+	setNumWords();
 }
 
 void File::setNumChars(void) {
@@ -65,6 +66,22 @@ void File::setNumChars(void) {
 }
 int File::getNumChars() {
 	return numChars;
+}
+
+void File::setNumWords(void) {
+	char word[30];
+	int count = 0;
+	while (!inData.eof())
+	{
+		inData >> word;
+		count++;
+	}
+	cout << "Number of words in file are " << count << endl;
+
+}
+
+int File::getNumWords() {
+	return numWords;
 }
 
 void File::setNumLines(void) {

@@ -12,6 +12,7 @@ private:
 	ifstream inData;
 	struct stat buff;
 	int numChars = 0;
+	int numWords = 0;
 	int numLines = 0;
 public:
 	File(char *_filename);
@@ -25,6 +26,9 @@ public:
 
 	void setNumChars(void);
 	int getNumChars();
+
+	void setNumWords(void);
+	int getNumWords();
 
 	void setNumLines(void);
 	int getNumLines();
