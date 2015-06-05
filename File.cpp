@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <sys\stat.h>
 #include <stdlib.h>
+#include <fstream>
+#include <string>
 
 File::File(char *_filename)
 {
@@ -14,6 +16,7 @@ File::File(char *_filename)
 File::~File()
 {
 	fclose(f);
+	inData.close();
 }
 
 void File::setFileName(char *_filename) {
@@ -26,16 +29,42 @@ void File::open(void) {
 		system("pause");
 		exit(1);
 	}
+	inData.open(filename);
+	if (inData.bad()) {
+		printf("Cannot open file.\n");
+		system("pause");
+		exit(1);
+	}
 }
 
 
 void File::stats(void) {
 	fstat(fileno(f), &buff);
+	setNumChars();
 	setNumLines();
 }
 
+void File::setNumChars(void) {
+	string line;
+	int sum = 0;
+	while (!inData.eof())
+	{
+		getline(inData, line);
+
+		int numofChars = line.length();
+		for (unsigned int n = 0; n<line.length(); n++)
+		{
+			if (line.at(n) == ' ')
+			{
+				numofChars--;
+			}
+		}
+		sum = numofChars + sum;
+	}
+	numChars = sum;
+}
 int File::getNumChars() {
-	return buff.st_size; //TODO not this!
+	return numChars;
 }
 
 void File::setNumLines(void) {
