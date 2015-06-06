@@ -45,6 +45,8 @@ public:
 
 	int countTimes(string keyword);
 
+	void removeKeywords(string keyword);
+
 	void success(void);
 
 };

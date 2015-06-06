@@ -249,6 +249,32 @@ int File::countTimes(string keyword) {
 	}
 }
 
+void File::removeKeywords(string keyword) {
+	ifstream fin;
+	ofstream fout;
+	fin.open(filename);
+	fout.open(filename2);
+
+	string line;
+	int times = 0;
+
+	if (fin.is_open())
+	{
+		while (getline(fin, line))
+		{
+			string::size_type i = line.find(keyword);
+
+			if (i != string::npos)
+				line.erase(i, keyword.length());
+
+			fout << line << endl;
+		}
+		fin.close();
+		fout.close();
+		success();
+	}
+}
+
 void File::success(void) {
 	system("cls");
 	cout << "New file has been saved." << endl;
