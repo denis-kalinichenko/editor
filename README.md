@@ -12,4 +12,4 @@
 * Unsubscribe lines (and their numbers) in containing the specified string
 * Unsubscribe n teething lines of the file
 * Unsubscribe n the final lines of the file
-* Polish conversion characters (for a standard ISO-8859-2, Windows-1250, Unicode
+* ~~~Polish conversion characters (for a standard ISO-8859-2, Windows-1250, Unicode~~~

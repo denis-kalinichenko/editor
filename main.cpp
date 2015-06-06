@@ -22,8 +22,7 @@ void showOptions() {
 		"Usuniecie z pliku podanego ciagu znakow",
 		"Wypisanie wierszy (oraz ich numerow) zawierajacych podany ciag znakow",
 		"Wypisanie n poczatkowych wierszy pliku",
-		"Wypisanie n koncowych wierszy pliku",
-		"konwersja polskich znakow (dla standardow kodowania ISO-8859-2, Windows-1250, Unicode)"
+		"Wypisanie n koncowych wierszy pliku"
 	};
 
 	int size = sizeof(options) / sizeof(string);
