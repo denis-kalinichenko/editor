@@ -134,6 +134,12 @@ int main(int argc, char** argv) {
 		cin >> keyword;
 		TextFile.findKeywords(keyword);
 		break;
+	case 10:
+		int n;
+		cout << "Podaj N: ";
+		cin >> n;
+		TextFile.showLinesFromStart(n);
+		break;
 	default:
 		break;
 	}

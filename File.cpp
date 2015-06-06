@@ -325,6 +325,26 @@ void File::findKeywords(string keyword) {
 	}
 }
 
+void File::showLinesFromStart(int n) {
+	ifstream fin;
+	fin.open(filename);
+
+	string line;
+	int counter = 0;
+
+	if (fin.is_open())
+	{
+		while (getline(fin, line))
+		{
+			if (counter < n) {
+				cout << line << endl;
+				counter++;
+			}
+		}
+		fin.close();
+	}
+}
+
 void File::success(void) {
 	system("cls");
 	cout << "New file has been saved." << endl;

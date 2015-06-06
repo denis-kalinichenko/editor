@@ -51,6 +51,8 @@ public:
 
 	void findKeywords(string keyword);
 
+	void showLinesFromStart(int n);
+
 	void success(void);
 
 };
