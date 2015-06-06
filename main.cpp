@@ -69,6 +69,7 @@ int main(int argc, char** argv) {
 
 	string keyword;
 	string keyword2;
+	int n;
 
 	switch (action)
 	{
@@ -135,10 +136,14 @@ int main(int argc, char** argv) {
 		TextFile.findKeywords(keyword);
 		break;
 	case 10:
-		int n;
 		cout << "Podaj N: ";
 		cin >> n;
 		TextFile.showLinesFromStart(n);
+		break;
+	case 11:
+		cout << "Podaj N: ";
+		cin >> n;
+		TextFile.showLinesFromEnd(n);
 		break;
 	default:
 		break;

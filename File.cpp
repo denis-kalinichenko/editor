@@ -345,6 +345,29 @@ void File::showLinesFromStart(int n) {
 	}
 }
 
+void File::showLinesFromEnd(int n) {
+	ifstream fin;
+	fin.open(filename);
+
+	string line;
+	int diff = 0;
+	int counter = 1;
+
+	if (fin.is_open())
+	{
+		diff = numLines - n;
+
+		while (getline(fin, line))
+		{
+			counter++;
+			if (counter > diff) {
+				cout << line << endl;
+			}
+		}
+		fin.close();
+	}
+}
+
 void File::success(void) {
 	system("cls");
 	cout << "New file has been saved." << endl;

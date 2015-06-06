@@ -53,6 +53,8 @@ public:
 
 	void showLinesFromStart(int n);
 
+	void showLinesFromEnd(int n);
+
 	void success(void);
 
 };
