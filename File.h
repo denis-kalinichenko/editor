@@ -9,7 +9,6 @@ class File
 private:
 	char filename[50];
 	FILE *f;
-	ifstream inData;
 	struct stat buff;
 	int numChars = 0;
 	int numWords = 0;

@@ -16,7 +16,6 @@ File::File(char *_filename)
 File::~File()
 {
 	fclose(f);
-	inData.close();
 }
 
 void File::setFileName(char *_filename) {
@@ -25,12 +24,6 @@ void File::setFileName(char *_filename) {
 
 void File::open(void) {
 	if ((f = fopen(filename, "r")) == NULL) {
-		printf("Cannot open file.\n");
-		system("pause");
-		exit(1);
-	}
-	inData.open(filename);
-	if (inData.bad()) {
 		printf("Cannot open file.\n");
 		system("pause");
 		exit(1);
@@ -48,6 +41,9 @@ void File::stats(void) {
 void File::setNumChars(void) {
 	string line;
 	int sum = 0;
+	ifstream inData;
+	inData.open(filename);
+
 	while (!inData.eof())
 	{
 		getline(inData, line);
@@ -62,6 +58,7 @@ void File::setNumChars(void) {
 		}
 		sum = numofChars + sum;
 	}
+
 	numChars = sum;
 }
 int File::getNumChars() {
@@ -69,14 +66,18 @@ int File::getNumChars() {
 }
 
 void File::setNumWords(void) {
-	char word[30];
-	int count = 0;
-	while (!inData.eof())
+    int spaces = 0;
+
+
+	ifstream fin;
+	fin.open(filename);
+	while (fin.good()) // while file is open and reads without error or eof
 	{
-		inData >> word;
-		count++;
+		if (32 == fin.get()) spaces++; // found space, increment counter
 	}
-	numWords = count; //TODO not working
+	fin.close();
+
+	numWords = spaces + numLines;
 }
 
 int File::getNumWords() {
@@ -89,6 +90,7 @@ void File::setNumLines(void) {
 	while (EOF != (ch = getc(f)))
 		if ('\n' == ch)
 			++number_of_lines;
+	++number_of_lines;
 	numLines = number_of_lines;
 }
 int File::getNumLines() {

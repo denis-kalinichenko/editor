@@ -73,8 +73,11 @@ int main(int argc, char** argv) {
 		case 1:
 			cout << "Znakow: " << TextFile.getNumChars() << endl;
 			break;
+		case 2:
+			cout << "Slow: " << TextFile.getNumWords() << endl;
+			break;
 		case 3:
-			cout << "Wierzy: " << TextFile.getNumLines();
+			cout << "Wierzy: " << TextFile.getNumLines() << endl;
 			break;
 		default:
 			break;
