@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <fstream>
 #include <string>
+#include <algorithm>
 
 File::File(char *_filename)
 {
@@ -96,13 +97,20 @@ int File::getNumWords() {
 }
 
 void File::setNumLines(void) {
-	int ch = 0;
-	unsigned int number_of_lines = 0;
-	while (EOF != (ch = getc(f)))
-		if ('\n' == ch)
-			++number_of_lines;
-	++number_of_lines;
-	numLines = number_of_lines;
+	ifstream fin;
+	fin.open(filename);
+
+	string line;
+	int counter = 1;
+	if (fin.is_open())
+	{
+		while (getline(fin, line))
+		{
+			counter++;
+		}
+		fin.close();
+		numLines = counter;
+	}
 }
 int File::getNumLines() {
 	return numLines;
@@ -110,97 +118,90 @@ int File::getNumLines() {
 
 void File::numberingLines(void) {
 	ifstream fin;
-
 	ofstream fout;
-
 	fin.open(filename);
-
 	fout.open(filename2);
 
-	char n;
+	string line;
 	int counter = 1;
-	fin.get(n);
-
-	while (!fin.eof())
+	if (fin.is_open())
 	{
-		if (n == '\n')
+		while (getline(fin, line))
 		{
-			fin.get(n);
-			fout << endl << counter << ". " << n;
+			fout << counter << ". " << line << endl;
 			counter++;
 		}
-		else {
-			if (counter == 1) {
-				fin.get(n);
-				fout << counter << ". " << n;
-				counter++;
-			}
-			else {
-				fout << n;
-			}
-		}
-		fin.get(n);
+		fin.close();
+		fout.close();
+		success();
 	}
-	fin.close();
-	fout.close();
 }
 
 void File::uppercase(void) {
 	ifstream fin;
-
 	ofstream fout;
-
 	fin.open(filename);
-
 	fout.open(filename2);
 
-	char n;
-	fin.get(n);
-
-	while (!fin.eof())
+	string line;
+	if (fin.is_open())
 	{
-		if (n == '.')
+		while (getline(fin, line))
 		{
-			fin.get(n);
-			fout << static_cast<char>(toupper(n));
+			string data = line;
+			transform(data.begin(), data.end(), data.begin(), ::toupper);
+			fout << data << endl;
 		}
-		else {
-			fout << static_cast<char>(toupper(n));
-		}
-		fin.get(n);
+		fin.close();
+		fout.close();
+		success();
 	}
-	fin.close();
-	fout.close();
 }
 
 void File::lowercase(void) {
 	ifstream fin;
-
 	ofstream fout;
-
 	fin.open(filename);
-
 	fout.open(filename2);
 
-	char n;
-	fin.get(n);
-
-	while (!fin.eof())
+	string line;
+	if (fin.is_open())
 	{
-		if (n == '.')
+		while (getline(fin, line))
 		{
-			fin.get(n);
-			fout << static_cast<char>(tolower(n));
+			string data = line;
+			transform(data.begin(), data.end(), data.begin(), ::tolower);
+			fout << data << endl;
 		}
-		else {
-			fout << static_cast<char>(tolower(n));
-		}
-		fin.get(n);
+		fin.close();
+		fout.close();
+		success();
 	}
-	fin.close();
-	fout.close();
 }
 
-void File::info(void) {
-	cout << "info " << buff.st_size << endl;
+void File::removeBlankLines(void) {
+	ifstream fin;
+	ofstream fout;
+	fin.open(filename);
+	fout.open(filename2);
+
+	string line;
+	if (fin.is_open())
+	{
+		while (getline(fin, line))
+		{
+			if (line != "") {
+				fout << line << endl;
+			}
+		}
+		fin.close();
+		fout.close();
+		success();
+	}
+}
+
+void File::success(void) {
+	system("cls");
+	cout << "New file has been saved." << endl;
+	exit(0);
 }

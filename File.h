@@ -39,6 +39,8 @@ public:
 	void uppercase(void);
 	void lowercase(void);
 
-	void info(void);
+	void removeBlankLines(void);
+
+	void success(void);
 
 };

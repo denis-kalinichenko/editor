@@ -92,23 +92,15 @@ int main(int argc, char** argv) {
 		break;
 	case 1:
 		TextFile.numberingLines();
-		system("cls");
-		cout << "New file has been saved." << endl;
-		exit(1);
 		break;
 	case 2:
+		TextFile.removeBlankLines();
 		break;
 	case 3:
 		TextFile.uppercase();
-		system("cls");
-		cout << "New file has been saved." << endl;
-		exit(1);
 		break;
 	case 4:
 		TextFile.lowercase();
-		system("cls");
-		cout << "New file has been saved." << endl;
-		exit(1);
 		break;
 	default:
 		break;
