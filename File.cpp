@@ -200,6 +200,10 @@ void File::removeBlankLines(void) {
 	}
 }
 
+void replaceTabsToSpaces(int spaces) {
+	cout << spaces << endl;
+}
+
 void File::success(void) {
 	system("cls");
 	cout << "New file has been saved." << endl;

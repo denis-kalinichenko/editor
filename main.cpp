@@ -68,6 +68,7 @@ int main(int argc, char** argv) {
 		exit(1);
 	}
 
+
 	switch (action)
 	{
 	case 0:
@@ -101,6 +102,12 @@ int main(int argc, char** argv) {
 		break;
 	case 4:
 		TextFile.lowercase();
+		break;
+	case 5:
+		int spaces;
+		cout << "Podaj iloœæ spacji: ";
+		cin >> spaces;
+		TextFile.replaceTabsToSpaces(spaces);
 		break;
 	default:
 		break;
