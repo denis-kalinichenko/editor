@@ -67,6 +67,7 @@ int main(int argc, char** argv) {
 		exit(1);
 	}
 
+	string keyword;
 
 	switch (action)
 	{
@@ -107,6 +108,13 @@ int main(int argc, char** argv) {
 		cout << "Podaj ilosc spacji: ";
 		cin >> spaces;
 		TextFile.replaceTabsToSpaces(spaces);
+		break;
+	case 6:
+		cout << "Podaj ciag znakow: ";
+		cin >> keyword;
+		int times;
+		times = TextFile.countTimes(keyword);
+		cout << "Znaleziono " << times << " razy." << endl;
 		break;
 	default:
 		break;

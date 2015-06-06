@@ -43,6 +43,8 @@ public:
 
 	void replaceTabsToSpaces(int spaces_c);
 
+	int countTimes(string keyword);
+
 	void success(void);
 
 };

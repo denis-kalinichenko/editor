@@ -228,6 +228,27 @@ void File::replaceTabsToSpaces(int spaces_c) {
 	}
 }
 
+int File::countTimes(string keyword) {
+	ifstream fin;
+	fin.open(filename);
+
+	string line;
+	int times = 0;
+
+	if (fin.is_open())
+	{
+		while (getline(fin, line))
+		{
+			string::size_type pos = line.find(keyword);
+			if (pos != std::string::npos) {
+				times++;
+			}
+		}
+		fin.close();
+		return times;
+	}
+}
+
 void File::success(void) {
 	system("cls");
 	cout << "New file has been saved." << endl;
