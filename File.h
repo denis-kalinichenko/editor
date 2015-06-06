@@ -13,11 +13,13 @@ private:
 	int numChars = 0;
 	int numWords = 0;
 	int numLines = 0;
+	char filename2[50];
 public:
 	File(char *_filename);
 	~File();
 
 	void setFileName(char *_filename);
+	void setFileName2(char *_filename2);
 
 	void open(void);
 
@@ -31,6 +33,11 @@ public:
 
 	void setNumLines(void);
 	int getNumLines();
+
+	void numberingLines(void);
+
+	void uppercase(void);
+	void lowercase(void);
 
 	void info(void);
 

@@ -303,6 +303,7 @@ crashlytics-build.properties
 
 
 test.txt
+test2.txt
 *.sln
 *.vcxproj
 *.vcxproj.filters

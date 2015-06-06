@@ -43,6 +43,12 @@ int main(int argc, char** argv) {
 
 	File TextFile(new_file_name);
 
+	char new_filename[50];
+	cout << "Enter name of new file: ";
+	cin >> new_filename;
+	TextFile.setFileName2(new_filename);
+
+
 	TextFile.open();
 	TextFile.stats();
 
@@ -83,6 +89,23 @@ int main(int argc, char** argv) {
 			break;
 		}
 
+		break;
+	case 1:
+
+		break;
+	case 2:
+		break;
+	case 3:
+		TextFile.uppercase();
+		system("cls");
+		cout << "New file has been saved." << endl;
+		exit(1);
+		break;
+	case 4:
+		TextFile.lowercase();
+		system("cls");
+		cout << "New file has been saved." << endl;
+		exit(1);
 		break;
 	default:
 		break;

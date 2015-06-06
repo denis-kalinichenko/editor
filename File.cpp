@@ -22,6 +22,17 @@ void File::setFileName(char *_filename) {
 	strcpy(filename, _filename);
 }
 
+
+void File::setFileName2(char *_filename2) {
+	if (_filename2 == filename) {
+		cout << "Enter a NEW name for file!" << endl;
+	}
+	else {
+		strcpy(filename2, _filename2);
+	}
+}
+
+
 void File::open(void) {
 	if ((f = fopen(filename, "r")) == NULL) {
 		printf("Cannot open file.\n");
@@ -95,6 +106,66 @@ void File::setNumLines(void) {
 }
 int File::getNumLines() {
 	return numLines;
+}
+
+void File::numberingLines(void) {
+
+}
+
+void File::uppercase(void) {
+	ifstream fin;
+
+	ofstream fout;
+
+	fin.open(filename);
+
+	fout.open(filename2);
+
+	char n;
+	fin.get(n);
+
+	while (!fin.eof())
+	{
+		if (n == '.')
+		{
+			fin.get(n);
+			fout << static_cast<char>(toupper(n));
+		}
+		else {
+			fout << static_cast<char>(toupper(n));
+		}
+		fin.get(n);
+	}
+	fin.close();
+	fout.close();
+}
+
+void File::lowercase(void) {
+	ifstream fin;
+
+	ofstream fout;
+
+	fin.open(filename);
+
+	fout.open(filename2);
+
+	char n;
+	fin.get(n);
+
+	while (!fin.eof())
+	{
+		if (n == '.')
+		{
+			fin.get(n);
+			fout << static_cast<char>(tolower(n));
+		}
+		else {
+			fout << static_cast<char>(tolower(n));
+		}
+		fin.get(n);
+	}
+	fin.close();
+	fout.close();
 }
 
 void File::info(void) {
