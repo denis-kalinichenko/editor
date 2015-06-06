@@ -304,6 +304,27 @@ void File::replaceKeywords(string keyword, string keyword2) {
 	}
 }
 
+void File::findKeywords(string keyword) {
+	ifstream fin;
+	fin.open(filename);
+
+	string line;
+	int counter = 1;
+
+	if (fin.is_open())
+	{
+		while (getline(fin, line))
+		{
+			string::size_type pos = line.find(keyword);
+			if (pos != std::string::npos) {
+				cout << counter << ". " << line << endl;
+				counter++;
+			}
+		}
+		fin.close();
+	}
+}
+
 void File::success(void) {
 	system("cls");
 	cout << "New file has been saved." << endl;

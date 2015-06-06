@@ -18,7 +18,7 @@ void showOptions() {
 		"Zamiana duzych liter na male",
 		"Zamiana znakow tabulacji na okreslona liczbe spacji",
 		"Zliczanie krotnosci wystapienia podanego ciagu znakow",
-		"Zamiana podanego ciagu znakow na inny podany ciag", //TODO
+		"Zamiana podanego ciagu znakow na inny podany ciag",
 		"Usuniecie z pliku podanego ciagu znakow",
 		"Wypisanie wierszy (oraz ich numerow) zawierajacych podany ciag znakow",
 		"Wypisanie n poczatkowych wierszy pliku",
@@ -128,6 +128,11 @@ int main(int argc, char** argv) {
 		cout << "Podaj ciag znakow: ";
 		cin >> keyword;
 		TextFile.removeKeywords(keyword);
+		break;
+	case 9:
+		cout << "Podaj ciag znakow: ";
+		cin >> keyword;
+		TextFile.findKeywords(keyword);
 		break;
 	default:
 		break;

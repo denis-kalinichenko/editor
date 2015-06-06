@@ -49,6 +49,8 @@ public:
 
 	void replaceKeywords(string keyword, string keyword2);
 
+	void findKeywords(string keyword);
+
 	void success(void);
 
 };
