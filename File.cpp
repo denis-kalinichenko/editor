@@ -275,6 +275,35 @@ void File::removeKeywords(string keyword) {
 	}
 }
 
+void File::replaceKeywords(string keyword, string keyword2) {
+	ifstream fin;
+	ofstream fout;
+	fin.open(filename);
+	fout.open(filename2);
+
+	string line;
+	int times = 0;
+
+	if (fin.is_open())
+	{
+		while (getline(fin, line))
+		{
+			size_t index = 0;
+			while (true) {
+				index = line.find(keyword, index);
+				if (index == string::npos) break;
+				line.replace(index, 3, keyword2);
+				index += 3;
+			}
+
+			fout << line << endl;
+		}
+		fin.close();
+		fout.close();
+		success();
+	}
+}
+
 void File::success(void) {
 	system("cls");
 	cout << "New file has been saved." << endl;

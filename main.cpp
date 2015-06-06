@@ -68,6 +68,7 @@ int main(int argc, char** argv) {
 	}
 
 	string keyword;
+	string keyword2;
 
 	switch (action)
 	{
@@ -115,6 +116,13 @@ int main(int argc, char** argv) {
 		int times;
 		times = TextFile.countTimes(keyword);
 		cout << "Znaleziono " << times << " razy." << endl;
+		break;
+	case 7:
+		cout << "Podaj ciag znakow: ";
+		cin >> keyword;
+		cout << "Podaj nowy ciag znakow: ";
+		cin >> keyword2;
+		TextFile.replaceKeywords(keyword, keyword2);
 		break;
 	case 8:
 		cout << "Podaj ciag znakow: ";

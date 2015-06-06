@@ -47,6 +47,8 @@ public:
 
 	void removeKeywords(string keyword);
 
+	void replaceKeywords(string keyword, string keyword2);
+
 	void success(void);
 
 };
