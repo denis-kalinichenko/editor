@@ -109,7 +109,40 @@ int File::getNumLines() {
 }
 
 void File::numberingLines(void) {
+	ifstream fin;
 
+	ofstream fout;
+
+	fin.open(filename);
+
+	fout.open(filename2);
+
+	char n;
+	int counter = 1;
+	fin.get(n);
+
+	while (!fin.eof())
+	{
+		if (n == '\n')
+		{
+			fin.get(n);
+			fout << endl << counter << ". " << n;
+			counter++;
+		}
+		else {
+			if (counter == 1) {
+				fin.get(n);
+				fout << counter << ". " << n;
+				counter++;
+			}
+			else {
+				fout << n;
+			}
+		}
+		fin.get(n);
+	}
+	fin.close();
+	fout.close();
 }
 
 void File::uppercase(void) {

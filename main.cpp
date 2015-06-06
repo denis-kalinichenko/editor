@@ -91,7 +91,10 @@ int main(int argc, char** argv) {
 
 		break;
 	case 1:
-
+		TextFile.numberingLines();
+		system("cls");
+		cout << "New file has been saved." << endl;
+		exit(1);
 		break;
 	case 2:
 		break;
