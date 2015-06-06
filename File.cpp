@@ -1,4 +1,6 @@
 ﻿#define _CRT_SECURE_NO_WARNINGS
+#define _CRT_NONSTDC_NO_DEPRECATE
+#define _SCL_SECURE_NO_WARNINGS
 #include "File.h"
 
 #include <stdio.h>
@@ -200,8 +202,30 @@ void File::removeBlankLines(void) {
 	}
 }
 
-void replaceTabsToSpaces(int spaces) {
-	cout << spaces << endl;
+void File::replaceTabsToSpaces(int spaces_c) {
+	ifstream fin;
+	ofstream fout;
+	fin.open(filename);
+	fout.open(filename2);
+
+	string spaces = "";
+	for (int i = 0; i < spaces_c; i++) {
+		spaces += string(1, ' ');
+	}
+
+	if (fin.is_open())
+	{
+		char c;
+		while (fin.get(c)) {
+			if (c == '\t')
+				fout << spaces;
+			else
+				fout << c;
+		}
+		fin.close();
+		fout.close();
+		success();
+	}
 }
 
 void File::success(void) {

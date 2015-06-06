@@ -60,7 +60,6 @@ int main(int argc, char** argv) {
 	cin >> action;
 
 
-	
 	if (action > 13) {
 		system("cls");
 		cout << "Please, choose from list" << endl;
@@ -105,7 +104,7 @@ int main(int argc, char** argv) {
 		break;
 	case 5:
 		int spaces;
-		cout << "Podaj iloœæ spacji: ";
+		cout << "Podaj ilosc spacji: ";
 		cin >> spaces;
 		TextFile.replaceTabsToSpaces(spaces);
 		break;

@@ -41,7 +41,7 @@ public:
 
 	void removeBlankLines(void);
 
-	void replaceTabsToSpaces(int spaces);
+	void replaceTabsToSpaces(int spaces_c);
 
 	void success(void);
 
